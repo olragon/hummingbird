@@ -1,23 +1,19 @@
 {
-  "name": "hummingbird",
+  "name": "hummingbird-next",
   "description": "A node.js statistics server",
-  "version": "0.2.0-17",
+  "version": "0.3.0",
   "dependencies": {
     "geoip-lite": "1.1.8",
-    "node-static": "0.5.9",
+    "node-static": "0.7.7",
     "socket.io": "1.4.8"
   },
-  "domains": [
-    "demo.hummingbirdstats.com"
-  ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/mnutt/hummingbird.git"
+    "url": "http://github.com/olragon/hummingbird.git"
   },
   "engines": {
     "node": ">=0.6.0"
   },
-  "subdomain": "hummingbird",
   "scripts": {
     "start": "node server.js"
   }
