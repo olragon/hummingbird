@@ -3,9 +3,9 @@
   "description": "A node.js statistics server",
   "version": "0.2.0-17",
   "dependencies": {
-    "geoip-lite": "^1.1.8",
+    "geoip-lite": "1.1.8",
     "node-static": "0.5.9",
-    "socket.io": "0.9.6"
+    "socket.io": "1.4.8"
   },
   "domains": [
     "demo.hummingbirdstats.com"
