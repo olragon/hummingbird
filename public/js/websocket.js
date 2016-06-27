@@ -81,6 +81,8 @@ Hummingbird.WebSocket.prototype = {
   connect: function() {
     console.log(this.url);
     this.socket = io.connect(this.url, { path: window.location.pathname + 'socket.io' });
+    console.log('this.socket', this.socket)
+
     var _this = this;
 
     this.socket.removeAllListeners();

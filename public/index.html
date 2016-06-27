@@ -61,11 +61,13 @@
     $(document).ready(function() {
       // change this to your host if the websocket server is on
       // a different host
-      var WS_SERVER = "http://" + document.location.host.toString() + document.location.pathname + 'socket.io/';
+      var WS_SERVER = document.location.pathname + 'socket.io/';
       var socket = new Hummingbird.WebSocket(WS_SERVER);
       socket.connect();
+
       console.log('socket', socket)
-      socket.socket.on('error', function (err) {
+
+      socket.on('error', function (err) {
         console.log('error', err);
       });
 

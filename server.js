@@ -6,13 +6,14 @@ var demo = require('./lib/demo');
 
 
 // Setup dashboard port listener
-dashboard.listen(config.dashboard_port, config.dashboard_address);
+dashboard = dashboard.listen(config.dashboard_port, config.dashboard_address);
 console.log("Dashboard listening on http://" + (config.dashboard_address || "*") + ":" + config.dashboard_port + ".");
 
 
 // Setup tracker port listener...
 if (typeof config.tracking_port != 'number') {
     // Tracker should listen on the same port as the dashboard
+    console.log(dashboard)
     tracker.listen(dashboard);
 
 } else {
