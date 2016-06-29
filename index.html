@@ -128,7 +128,7 @@
       Follow me on Twitter: <span style="position: relative; top: -2px;"><a class="awesome" href="http://twitter.com/michaeln3">@michaeln3</a></span>
     </div>
 
-    <h1>Hummingbird</h1>
+    <h1>Hummingbird next (WIP)</h1>
 
     <div class="screenshot">
       <a href="http://vimeo.com/11613517"><img src="images/screenshot_small.png" /></a>
@@ -140,11 +140,19 @@
       <p>And by <span>&ldquo;</span>real time<span>&rdquo;</span> we don’t mean it refreshes every 5 minutes<span>&mdash;</span>WebSockets enable Hummingbird to update 20 times per second.</p>
 
       <p>Hummingbird is built on top of <a href="http://www.nodejs.org">Node.js</a>, a set of event-driven javascript web libraries built on top of the V8 javascript engine.</p>
-
-      <a href="http://github.com/mnutt/hummingbird" class="github-button awesome">
+      
+      <p>
+        Hummingbird-next is attempted to made Hummingbird project great again.
+        <ul>
+          <li>using with express or node's raw server</li>
+          <li>upgrade required modules</li>
+        </ul>
+      </p>
+      
+      <a href="http://github.com/olragon/hummingbird" class="github-button awesome">
         Go to the GitHub page
       </a> &nbsp;
-      <a href="http://demo.hummingbirdstats.com" class="github-button awesome">
+      <a href="https://quark-rover.hyperdev.space/" class="github-button awesome">
         View the Live Demo
       </a>
     </div>
@@ -155,33 +163,34 @@
 
     <img style="margin-top: -15px;" src="images/explanation.png" />
 
-    <h2>Downloading</h2>
+    <h2>Downloading & Installation</h2>
 
-    <p>You can clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/mnutt/hummingbird</pre>
-    </p>
+    <p><pre>npm install hummingbird-next --save</pre></p>
 
-    <h2>Installation</h2>
+    <h2>How to use</h2>
     <p>Copy the default configuration file:
-      <pre>$ cp config/config.example.js config/config.js</pre>
-    </p>
+      <pre>
+var http = require('http');
+var express = require('express');
+var app = express();
+var server = http.Server(app);
+var hummingbird = require('hummingbird-next');
 
-    <p>Retrieve the package dependencies using node's npm package manager:
-      <pre>$ npm install</pre>
-    </p>
+// hummingbird dashboard will be ready at /dashboard/
+hummingbird.dashboard.attach(server, '/dashboard/');
 
-    <p>Start the server and the monitor app:
-      <pre>$ node server.js</pre>
+// tracking pixel will be ready at /tracking_pixel.gif
+hummingbird.tracker.attach(server, '/tracking_pixel.gif'); 
+
+var listener = server.listen(process.env.PORT || 3000, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
+      </pre>
     </p>
 
     <h2>Deployment</h2>
     <p>
-      Hummingbird will deploy pretty much anywhere that supports node.js and websockets.  <a href="http://jit.su">NodeJitsu</a>
-      has a particularly easy deployment process:
-      <pre>$ npm install -g jitsu
-$ jitsu signup
-$ jitsu deploy</pre>
+      Hummingbird will deploy pretty much anywhere that supports node.js and websockets.
     </p>
 
     <h2>Presentations</h2>
